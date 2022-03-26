@@ -169,6 +169,59 @@ body {
     transition: all 0.3s ease;
 }
 
+.forms.form-content meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0 auto 1em;
+    width: 100%;
+    height: 0.5em;
+    /* Applicable only to Firefox */
+    background: none;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-content meter::-webkit-meter-bar {
+    background: none;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-content meter[value="1"]::-webkit-meter-optimum-value {
+    background: red;
+}
+
+.form-content meter[value="2"]::-webkit-meter-optimum-value {
+    background: yellow;
+}
+
+.forms-content meter[value="3"]::-webkit-meter-optimum-value {
+    background: orange;
+}
+
+.form-content meter[value="4"]::-webkit-meter-optimum-value {
+    background: green;
+}
+
+
+/* Gecko based browsers */
+
+.form-content meter[value="1"]::-moz-meter-bar {
+    background: red;
+}
+
+.form-content meter[value="2"]::-moz-meter-bar {
+    background: yellow;
+}
+
+.form-content meter[value="3"]::-moz-meter-bar {
+    background: orange;
+}
+
+.form-content meter[value="4"]::-moz-meter-bar {
+    background: green;
+}
+
 .form-content .input-box input:focus,
 .form-content .input-box input:valid {
     border-color: #7d2ae8;

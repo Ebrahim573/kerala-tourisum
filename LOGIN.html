@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <!--<title> Login and Registration Form in HTML & CSS </title>-->
     <link rel="stylesheet" href="LOGIN.CSS">
+    <link rel="stylesheet" href="strength.css">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+
 </head>
 
 <body>
@@ -33,16 +36,22 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Login</div>
-                    <form action="#">
+                    <form action="index.html" onsubmit="return loginvalidate()">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" required>
+                                <input type="text" id="email" class="form-control emailInput" placeholder="Enter your email">
                             </div>
+
+                            <label for="error" id="error"></label>
+                            <br>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" required>
+                                <input type="password" id="password" pattern="/^([A-Za-z0-9\.-]+){8,30}$" class="form-control passwordInput" placeholder="Enter your password">
                             </div>
+
+                            <meter max="4" id="password-strength-meter"></meter>
+                            <p id="password-strength-text"></p>
                             <div class="text"><a href="#">Forgot password?</a></div>
                             <div class="button input-box">
                                 <input type="submit" value="Sumbit">
@@ -53,35 +62,36 @@
                 </div>
                 <div class="sig up-form">
                     <div class="title">Sign up</div>
-                    <form action="#">
+                    <form action="LOGIN.html" onsubmit="return signupvalidate()">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your First name" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your Last name" required>
+                                <input type="text" id="username" pattern="\(?([A-Za-z-0-9]))$" class="form-control emailInput" placeholder="username">
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-phone-volume"></i>
-                                <input type="text" placeholder="Enter your Mobile number" required>
+                                <input type="text" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required class="form-control emailInput" placeholder="Enter your Mobile number">
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" required>
+                                <input type="text" id="email" pattern="/^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]).([a-z]{2,3})(.[a-z]{2,3}?)$/" class="form-control emailInput" placeholder="Enter your email">
                             </div>
+
+                            <label for="error" id="error"></label>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" required>
+                                <input type="password" id="password" pattern="/^([A-Za-z0-9\.-]+){8,30}$" class="form-control passwordInput" placeholder="Enter your password">
                             </div>
+                            <label for="error" id="error"></label>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Confirm your password" required>
+                                <input type="password" id="password" pattern="/^([A-Za-z0-9\.-]+){8,30}$" placeholder="Confirm your password" requiredclass="form-control passwordInput">
                             </div>
+                            <label for="error" id="error"></label>
                             <div class="button input-box">
                                 <input type="submit" value="Sumbit">
                             </div>
+
                             <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
                         </div>
                     </form>
@@ -89,6 +99,9 @@
             </div>
         </div>
     </div>
+    <script src="log.js"></script>
+    <script src="signup.js"></script>
+    <script src="st.js"></script>
 </body>
 
 </html>
